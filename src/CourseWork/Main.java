@@ -1,5 +1,7 @@
 package CourseWork;
 
+import java.lang.reflect.Array;
+
 public class Main {
     public static void main(String[] args) {
         Employee[] employeeArray = new Employee[10];
@@ -13,6 +15,11 @@ public class Main {
         employeeArray[7] = new Employee("Нуралиев Борис Георгиевич", 5, 329913);
         employeeArray[8] = new Employee("Кириенко Владимир Сергеевич", 4, 334860);
         employeeArray[9] = new Employee("Мильнер Юрий Борисович", 2, 319340);
+
+        employeeArray[2].setDepartment(2);
+        employeeArray[4].setDepartment(1);
+        employeeArray[6].setSalary(500000);
+        employeeArray[8].setSalary(100000);
 
         System.out.println("\n" +
                 "Новое задание");
@@ -67,5 +74,7 @@ public class Main {
         for (int i = 0; i < employeeArray.length; i++) {
             System.out.println(employeeArray[i].getName());
         }
+
     }
 }
+

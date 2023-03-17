@@ -6,7 +6,7 @@ public class Employee {
     private int salary;
     static int id = 1;
 
-    public Employee (String name, int department, int salary) {
+    public Employee(String name, int department, int salary) {
         this.name = name;
         this.department = department;
         this.salary = salary;
@@ -38,5 +38,5 @@ public class Employee {
                 ", отдел: " + this.department +
                 ", зарплата: " + this.salary + ", id: " + this.id++;
     }
-
 }
+
