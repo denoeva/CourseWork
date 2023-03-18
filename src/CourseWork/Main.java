@@ -1,10 +1,9 @@
 package CourseWork;
 
-import java.lang.reflect.Array;
-
 public class Main {
+    public static Employee[] employeeArray = new Employee[10];
+
     public static void main(String[] args) {
-        Employee[] employeeArray = new Employee[10];
         employeeArray[0] = new Employee("Донской Михаил Владимирович", 1, 212073);
         employeeArray[1] = new Employee("Касперский Евгений Валентинович", 2, 481015);
         employeeArray[2] = new Employee("Данилов Игорь Анатольевич", 3, 306998);
@@ -21,22 +20,29 @@ public class Main {
         employeeArray[6].setSalary(500000);
         employeeArray[8].setSalary(100000);
 
-        System.out.println("\n" +
-                "Новое задание");
+        printAll();
+        System.out.println("Сумма затрат на зарплаты в месяц: " + sumSalary() + " условных единиц.");
+        System.out.println("Сотрудник " + employeeMinSalary() + " с минимальной зарплатой.");
+        System.out.println("Сотрудник " + employeeMaxSalary() + " с максимальной зарплатой.");
+        System.out.println("Средняя сумма затрат на зарплаты в месяц: " + averageSalary() + " условных единиц.");
+        getFullNames();
+    }
+
+    private static void printAll() {
         for (Employee employee : employeeArray) {
             System.out.println(employee);
         }
+    }
 
-        System.out.println("\n" +
-                "Новое задание");
+    private static int sumSalary() {
         int sumSalary = 0;
         for (int i = 0; i < employeeArray.length; i++) {
             sumSalary = sumSalary + employeeArray[i].getSalary();
         }
-        System.out.println("Сумма затрат на зарплаты в месяц: " + sumSalary + " условных единиц.");
+        return sumSalary;
+    }
 
-        System.out.println("\n" +
-                "Новое задание");
+    private static String employeeMinSalary() {
         int minSalary = employeeArray[0].getSalary();
         String minSalaryName = employeeArray[0].getName();
         for (int i = 0; i < employeeArray.length; i++) {
@@ -45,10 +51,10 @@ public class Main {
                 minSalaryName = employeeArray[i].getName();
             }
         }
-        System.out.println("Сотрудник " + minSalaryName + " с минимальной зарплатой в размере " + minSalary + " условных единиц.");
+        return minSalaryName;
+    }
 
-        System.out.println("\n" +
-                "Новое задание");
+    private static String employeeMaxSalary() {
         int maxSalary = employeeArray[0].getSalary();
         String maxSalaryName = employeeArray[0].getName();
         for (int i = 0; i < employeeArray.length; i++) {
@@ -57,24 +63,22 @@ public class Main {
                 maxSalaryName = employeeArray[i].getName();
             }
         }
-        System.out.println("Сотрудник "+ maxSalaryName + " с минимальной зарплатой в размере " + maxSalary + " условных единиц.");
+        return maxSalaryName;
+    }
 
-        System.out.println("\n" +
-                "Новое задание");
-        //int sumSalary = 0;
+    private static int averageSalary() {
         int averageSalary = 0;
         for (int i = 0; i < employeeArray.length; i++) {
-            sumSalary = sumSalary + employeeArray[i].getSalary();
-            averageSalary = sumSalary / employeeArray.length;
+            averageSalary = averageSalary + employeeArray[i].getSalary();
+            averageSalary = averageSalary / employeeArray.length;
         }
-        System.out.println("Средняя сумма затрат на зарплаты в месяц: " + averageSalary + " условных единиц.");
+        return averageSalary;
+    }
 
-        System.out.println("\n" +
-                "Новое задание");
+    private static void getFullNames() {
         for (int i = 0; i < employeeArray.length; i++) {
             System.out.println(employeeArray[i].getName());
         }
-
     }
 }
 
